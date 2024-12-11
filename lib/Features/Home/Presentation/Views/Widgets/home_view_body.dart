@@ -14,12 +14,13 @@ class HomeViewBody extends StatelessWidget {
         CustomAppBar(),
         SizedBox(height: 24),
         FeatureListView(),
-        SizedBox(height: 32),
+        SizedBox(height: 50),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Text('Best Seller', style: Styles.textStyle18,),
+          child: Text('Best Seller', style: Styles.textSemiBold18,),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 20),
+        
       ],
     );
   }
