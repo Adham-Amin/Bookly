@@ -1,5 +1,8 @@
+import 'package:bookly_app/Core/Utils/app_router.dart';
 import 'package:bookly_app/Core/Utils/assets_data.dart';
+import 'package:bookly_app/Features/Splash/Presentation/Views/Widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -16,7 +19,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     slidingAnimate();
-
+    navigateToHome();
     super.initState();
   }
 
@@ -36,19 +39,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
         const SizedBox(
           height: 4,
         ),
-        AnimatedBuilder(
-            animation: slidingAnimation,
-            builder: (context, _) {
-              return SlideTransition(
-                position: slidingAnimation,
-                child: const Text(
-                  'Read Free Books',
-                  textAlign: TextAlign.center,
-                ),
-              );
-            }),
+        SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      GoRouter.of(context).push(AppRouter.homeView);
+    });
   }
 
   void slidingAnimate() {
