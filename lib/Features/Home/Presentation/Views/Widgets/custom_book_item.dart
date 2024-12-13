@@ -1,6 +1,7 @@
-
+import 'package:bookly_app/Core/Utils/app_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBookItem extends StatelessWidget {
   const CustomBookItem({super.key});
@@ -8,7 +9,9 @@ class CustomBookItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.bookDetails);
+      },
       child: AspectRatio(
         aspectRatio: 2.6 / 4,
         child: ClipRRect(
