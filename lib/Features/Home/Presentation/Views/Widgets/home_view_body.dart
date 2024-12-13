@@ -1,7 +1,6 @@
 import 'package:bookly_app/Core/Utils/styles.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_app_bar.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_feature_list_view.dart';
-import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/custom_free_book_item.dart';
 import 'package:bookly_app/Features/Home/Presentation/Views/Widgets/free_books_list_view.dart';
 import 'package:flutter/material.dart';
 
