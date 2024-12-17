@@ -5,10 +5,9 @@ import 'package:bookly_app/Features/Home/Domain/Repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
 class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>> {
-
   final HomeRepo homeRepo;
   FetchFeaturedBooksUseCase(this.homeRepo);
-  
+
   @override
   Future<Either<Failure, List<BookEntity>>> call() async {
     // Check permission
