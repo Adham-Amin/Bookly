@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomBookItem extends StatelessWidget {
-  const CustomBookItem({super.key});
-
+  const CustomBookItem({super.key, required this.image});
+  final String image;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,7 +19,7 @@ class CustomBookItem extends StatelessWidget {
           child: CachedNetworkImage(
             fit: BoxFit.fill,
             imageUrl:
-                "http://books.google.com/books/content?id=nOPuDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                image,
             errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
