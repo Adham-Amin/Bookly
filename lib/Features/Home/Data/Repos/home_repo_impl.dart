@@ -7,20 +7,20 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl extends HomeRepo {
-  final HomeLocalDataSourceImpl homeLocalDataSource;
+  final HomeLocalDataSource homeLocalDataSource;
   final HomeRemoteDataSource homeRemoteDataSource;
 
   HomeRepoImpl(
       {required this.homeLocalDataSource, required this.homeRemoteDataSource});
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks({int page = 0}) async {
     List<BookEntity> books;
     try {
-      books = homeLocalDataSource.fetchFeaturedBooks();
+      books = homeLocalDataSource.fetchFeaturedBooks(page);
       if (books.isNotEmpty) {
         return right(books);
       }
-      books = await homeRemoteDataSource.fetchFeaturedBooks();
+      books = await homeRemoteDataSource.fetchFeaturedBooks(page: page);
       return right(books);
     } catch (e) {
       if (e is DioException) {
